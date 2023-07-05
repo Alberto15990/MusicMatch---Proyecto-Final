@@ -1,9 +1,10 @@
-const { cookie } = require ('simple-stateless-auth-library')
-
 module.exports = () => async (req,res,next) =>{
-    cookie.clear(res)
+    const { email } = res.locals
 
     res.status(200).json({
         success: true,
+        data: {
+            email,
+        }
     })
 }

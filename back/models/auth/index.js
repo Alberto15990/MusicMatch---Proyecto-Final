@@ -20,15 +20,24 @@ const selectUser = (db) => async (email,compareFn) =>{
     try {
        const user = await db.maybeOne(selectByEmail(email))
 
-       console.info( '> USER:' , user)
-
        if (!user ) return{
         ok:false,
         error_code: 'wrong_data',
        }
 
+       const areEqual = await compareFn(user.password)
+
+       if(!areEqual) return{
+        ok:false,
+        error_code: 'wrong_data',
+       }
+
+
         return{
             ok:true,
+            content: {
+                email,
+            }
         }
     } catch (error) {
         console.info('> select user error:', error)

@@ -1,7 +1,10 @@
 const router = require('express').Router()
 
-module.exports = (db) => {
-    router.use('/auth', require('./auth')(db))
+const authRoutes = require('./auth')
+const usersRoutes = require('./users')
 
+module.exports = (db) => {
+    router.use('/auth', authRoutes(db))
+    router.use('/users', usersRoutes())
     return router
 }
