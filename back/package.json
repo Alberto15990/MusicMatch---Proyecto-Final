@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "db:query": "node ./queries/playlist.js"
   },
   "keywords": [],
   "author": "",
