@@ -1,4 +1,4 @@
-const authorizer = require ('./authorizer')
+const authorizer = require ('../middlewares/authorizer')
 
 
 module.exports = {
