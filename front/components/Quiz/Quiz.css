@@ -1,0 +1,61 @@
+.App{
+    text-align: center;
+    padding: 50px;
+}
+
+.question-card{
+    margin: 0 auto;
+    background-color: gray;
+    padding: 16px;
+    border-radius: 16px;
+    color: white;
+    width: 80%;
+    height: auto;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+}
+
+ul{
+    list-style: none;
+}
+
+.list{
+    background-color: darkgray;
+    padding: 16px;
+    border: 3px solid white;
+    border-radius: 20px;
+    font-size: 20px;
+    margin-top: 8px;
+
+}
+
+.question-text{
+    color: rgba(50, 50, 93, 1);
+    font-size: 24px;
+}
+
+.playlist{
+    margin: 0 auto;
+    background-color: gray;
+    padding: 16px;
+    border-radius: 16px;
+    color: white;
+    width: 50%;
+    height: auto;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+}
+
+button{
+    background-color: tan;
+    border: none;
+    color: black;
+    padding: 16px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+  
+    border-radius: 24px;
+}
