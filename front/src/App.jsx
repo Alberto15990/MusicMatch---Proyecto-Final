@@ -1,15 +1,23 @@
-import Navbar from '../components/Navbar/Navbar'
-import Quiz from '../components/Quiz/Quiz'
+import Login from '../pages/Login'
+import Start from '../pages/Start'
+import { Redirect, Route, Switch } from 'wouter'
 
-function App() {
+
+
+
+const App =() => {
 
   return (
     <div>
-      <Navbar/>
-      <p></p>
-      <Quiz/>
+     
+      <Switch>
+      <Route path= "/start" component={Start}/>
+      <Route path='/login' component={Login}/>
+      <Redirect to='/login'/>
+      </Switch>
     </div>
   )
 }
+
 
 export default App
