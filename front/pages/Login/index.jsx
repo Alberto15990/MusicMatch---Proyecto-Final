@@ -1,43 +1,36 @@
 import Navbar from "../../components/Navbar/Navbar";
 import { useForm } from 'react-hook-form'
+import { login } from '../../misc/templates'
+import { useLogin } from "../../hooks";
+import { useQuery } from 'react-query'
+import { user } from '../../services'
+import { useEffect } from "react";
+import { useLocation } from "wouter";
 
+const useUser = () =>{
 
-const templates = {
-    login: {
-        email: {
-            validation: {
-                required: true,
-            },
-        },
-        username: {
-            validation: {
-                required: true,
-            }
+    const { data, isLoading } = useQuery({
+        queryKey: ['user'],
+        queryFn: user.info
+    })
 
-        },
-        password: {
-            validation: {
-                required: true,
-                minLength: 4,
-            }
-
-        },
-        errors: {
-            required: 'This fields are mandatory',
-            minLength: '4 length at least is required',
-        }
-    },
-};
+    return { data , isLoading}
+}
 
 const Login = () => {
 
     const { register, formState, handleSubmit } = useForm()
 
-    const handleForm = (data) => {
-        console.info('>form data', data)
-    }
+    const doLogin = useLogin()
+    const[,setLocation] = useLocation()
+    const {data} = useUser()
 
-    const {errors} = templates.login
+
+    useEffect(()=>{
+        data && setLocation('/start')
+    }, [data])
+
+    const { errors, email, username, password } = login
 
     return (
         <>
@@ -45,28 +38,24 @@ const Login = () => {
             <p></p>
             <h1>Login panel</h1>
 
-            <form onSubmit={handleSubmit(handleForm)}>
+            <form onSubmit={handleSubmit(doLogin)}>
                 <label htmlFor="email">e-mail</label><br />
-                <input 
-                id="email" 
-                placeholder="enter your e-mail" 
-                {...register("email", { required: true })}></input>
-                <p>{formState.errors && errors[formState.errors?.email?.type]}</p>
+                <input {...{ ...email.props, ...register("email", email.validation) }}
+                />
+                <p>{errors[formState.errors?.email?.type]}</p>
 
                 <label htmlFor="username">Username</label><br />
-                <input 
-                id="username" 
-                placeholder="enter your username" 
-                {...register("username", { required: true })}></input>
-                <p>{formState.errors && errors[formState.errors?.username?.type]}</p>
+                <input
+                    {...{ ...username.props, ...register("username", username.validation) }}
+                />
+
+                <p>{errors[formState.errors?.username?.type]}</p>
 
                 <label htmlFor="password">Password</label><br />
-                <input 
-                id="password" 
-                type="password" 
-                placeholder="***********" 
-                {...register("password", { required: true, minLength: 4 })}></input>
-                <p>{formState.errors && errors[formState.errors?.password?.type]}</p>
+                <input
+                    {...{ ...password.props, ...register("password", password.validation) }}
+                />
+                <p>{errors[formState.errors?.password?.type]}</p>
 
                 <input type="submit" />
 
