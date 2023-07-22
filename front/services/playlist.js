@@ -1,7 +1,7 @@
 export const get = (client) => async (food,party,people_qty) => {
     try {
         const {data : response} = await client.get(`/playlists/?food=${food}&party=${party}&people_qty=${people_qty}`)
-        console.info('> info data:', response )
+        console.info('> info data:', response.data )
         return response.data;
        
     } catch (error) {

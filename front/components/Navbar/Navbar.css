@@ -1,11 +1,13 @@
 .nav {
+    font-family: 'Courier New', Courier, monospace;
+    margin-bottom: 50px;
     display: flex;
     list-style: none;
     border: 2px solid;
-    background: beige;
+    background: linear-gradient(to bottom, #4ae251, #030005);
     border-radius: 13px;
     display: flex;
     justify-content: center;
     padding: 20px;
-    gap: 2rem;
+    gap: 10rem;
 }

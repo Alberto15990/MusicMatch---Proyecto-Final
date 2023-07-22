@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import "./Quiz.css"
 import { questions } from "../../../constants";
+import { usePlaylist } from "../../hooks/usePlaylist";
+
+
 
 function Quiz() {
 
@@ -14,28 +17,32 @@ function Quiz() {
 
     const optionClicked = (selectedOption) =>{
         setSelectedAnswers({...selectedAnswers, [currentQuestion]:selectedOption})
-        console.log(selectedAnswers)
+    
         if (currentQuestion +1 < questions.length) {
             setCurrentQuestion(currentQuestion +1 )
         }else{
-            setShowPlaylist(true)
+            setShowPlaylist(true);
         }
     }
-    
+    console.log('> selected answers: ' ,selectedAnswers)
 
+    const {data, isLoading} = usePlaylist(selectedAnswers[0],selectedAnswers[1],selectedAnswers[2]) 
+
+    console.log('>data: ', data)
     //Questions 
 
     
 
     return (
+        <div className="background">
         <div className="App">
             <h1>MusicMatch</h1>
 
-            {showPlaylist ? (
+            {(showPlaylist && !isLoading)? (
                 <div className="playlist">
                     <h1>Esta es tu playlist!!!</h1>
-                    <h2>enlace a la playlist</h2>
-                    <button>Ir a la playlist</button>
+                    <h2>Nombre de la</h2>
+                    <button><a href={`https://open.spotify.com/playlist/${data?.[0]?.playlist_id}`} target="_blank"> Go to playlist!! </a ></button>
 
                 </div>
             ) :(
@@ -54,6 +61,7 @@ function Quiz() {
                     </div>
                 )}
     
+        </div>
         </div>
     )
 }

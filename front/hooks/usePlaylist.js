@@ -1,12 +1,13 @@
 import { useQuery } from "react-query"
 import { playlist } from "../services"
 
+
 export const usePlaylist = (food,party,people_qty) =>{
 
     const { data, isLoading } = useQuery({
-        queryKey: ['playlist'],
+        queryKey: ['playlist',food,party,people_qty],
         queryFn: playlist.get(food,party,people_qty)
     })
-
+console.log('> data: ' ,data)
     return { data , isLoading}
 }
