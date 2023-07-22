@@ -8,17 +8,20 @@ function Quiz() {
 
     const [ showPlaylist, setShowPlaylist ] = useState(false)
     const [ currentQuestion, setCurrentQuestion ] = useState(0)
-
+    const [ selectedAnswers , setSelectedAnswers] = useState({})
 
     //FUNCTIONS
 
-    const optionClicked = () =>{
-        if (currentQuestion + 1 < questions.length) {
-            setCurrentQuestion(currentQuestion + 1)
+    const optionClicked = (selectedOption) =>{
+        setSelectedAnswers({...selectedAnswers, [currentQuestion]:selectedOption})
+        console.log(selectedAnswers)
+        if (currentQuestion +1 < questions.length) {
+            setCurrentQuestion(currentQuestion +1 )
         }else{
             setShowPlaylist(true)
         }
     }
+    
 
     //Questions 
 
@@ -39,19 +42,22 @@ function Quiz() {
                     <div className="question-card">
                         <h2>Question {currentQuestion + 1} of {questions.length}</h2>
                         <h3 className="question-text">{questions[currentQuestion].text}</h3>
-
+                            
                         <ul>
                            {questions[currentQuestion].options.map((option) =>{
                             return (
-                                <li onClick={()=> optionClicked(option.isCorrect)} key={option.id} className="list">{option.text}</li>
+                                <li onClick={()=> optionClicked(option.id)} key={option.id} className="list">{option.text}</li>
                             )
+
                            })}
                         </ul>
                     </div>
                 )}
+    
         </div>
     )
 }
+
 
 export default Quiz;
 
