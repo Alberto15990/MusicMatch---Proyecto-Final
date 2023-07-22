@@ -1,21 +1,11 @@
 import Navbar from "../../components/Navbar/Navbar";
 import { useForm } from 'react-hook-form'
 import { login } from '../../misc/templates'
-import { useLogin } from "../../hooks";
-import { useQuery } from 'react-query'
-import { user } from '../../services'
+import { useLogin, useUser } from "../../hooks";
 import { useEffect } from "react";
 import { useLocation } from "wouter";
 
-const useUser = () =>{
 
-    const { data, isLoading } = useQuery({
-        queryKey: ['user'],
-        queryFn: user.info
-    })
-
-    return { data , isLoading}
-}
 
 const Login = () => {
 

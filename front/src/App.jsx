@@ -3,7 +3,7 @@ import Start from '../pages/Start'
 import Register from '../pages/Register'
 import { Redirect, Route, Switch } from 'wouter'
 import Provider from '../context/Provider'
-
+import Guard from '../components/Guard'
 
 const App = () => {
 
@@ -11,7 +11,9 @@ const App = () => {
     <div>
       <Provider>
         <Switch>
-          <Route path="/start" component={Start} />
+          <Route path="/start">
+          <Guard component={Start}/>
+          </Route>
           <Route path='/login' component={Login} />
           <Route path='/register' component={Register} />
           <Redirect to='/login' />
