@@ -50,20 +50,20 @@ ul {
 
 .playlist {
     margin: 0 auto;
-    background-color: gray;
+    background: linear-gradient(to bottom, #000000, #84ebad);
     padding: 16px;
     border-radius: 16px;
     color: white;
     width: 50%;
     height: auto;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px,
-        rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+    box-shadow: rgba(59, 93, 50, 0.25) 0px 30px 60px -12px,
+        rgba(106, 190, 69, 0.3) 0px 18px 36px -18px;
 }
 
 button {
-    background-color: tan;
-    border: none;
-    color: black;
+    border: 5px solid;
+    background-color: rgb(162, 210, 140);
+    color: rgba(51, 45, 45, 0.915);
     padding: 16px 24px;
     text-align: center;
     text-decoration: none;
