@@ -1,14 +1,17 @@
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { useLocation } from "wouter";
+import { useLocation, Link } from "wouter";
 import Navbar from "../../components/Navbar/Navbar";
 import { useLogin, useUser } from "../../hooks";
 import { login } from "../../misc/templates";
+import Footer from "../../components/Footer";
+
+
 
 const Login = () => {
   const { register, formState, handleSubmit } = useForm();
 
-  const doLogin = useLogin();
+  const { login: loginMutation } = useLogin();
   const [, setLocation] = useLocation();
   const { data } = useUser();
 
@@ -24,7 +27,7 @@ const Login = () => {
       <p></p>
       <h1>Login panel</h1>
 
-      <form onSubmit={handleSubmit(doLogin)}>
+      <form onSubmit={handleSubmit(loginMutation)}>
         <label htmlFor="email">e-mail</label>
         <br />
         <input
@@ -55,6 +58,10 @@ const Login = () => {
 
         <input type="submit" />
       </form>
+
+      <Footer>
+        <Link to="/register">Don't have account yet? Create one!</Link>
+      </Footer>
     </>
   );
 };
