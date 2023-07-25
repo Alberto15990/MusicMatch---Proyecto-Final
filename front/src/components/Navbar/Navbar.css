@@ -11,3 +11,15 @@
     padding: 20px;
     gap: 10rem;
 }
+
+.button{
+    font-family: 'Chakra Petch', sans-serif;
+    background-color: rgb(159, 240, 44);
+    border: 3px solid;
+    border-color: #030005;
+    margin: 5px;
+    border-radius: 5px;
+    padding: 10px;
+    text-decoration: none;
+
+}

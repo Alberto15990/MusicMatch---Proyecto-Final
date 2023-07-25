@@ -2,11 +2,11 @@ import { Link, useRoute } from "wouter";
 import "./Navbar.css";
 
 const Customlink = ({ href, children }) => {
-  const [isActive] = useRoute(href); //isActive para cambiar el color o estado de la pagina que este activa (posible mejora)
+  const [isActive] = useRoute(href); 
 
   return (
     <Link {...{ href }}>
-      <a {...{ href }}>{children}</a>
+      <a className="button" {...{ href }}>{children}</a>
     </Link>
   );
 };

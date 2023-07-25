@@ -41,7 +41,7 @@ const PlaylistCard = ({ answers }) => {
         <p>Cargando playlist...</p>
       ) : (
         <button>
-          <a
+          <a className="go"
             href={`https://open.spotify.com/playlist/${data?.playlist}`}
             target="_blank"
           >

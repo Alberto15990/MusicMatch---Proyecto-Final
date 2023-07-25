@@ -16,6 +16,7 @@ h1 {
 }
 
 .question-card {
+    font-family: 'Chakra Petch', sans-serif;
     border: 10px solid;
     color: rgb(227, 243, 236);
     background: linear-gradient(to bottom, #071307, #030005);
@@ -72,4 +73,13 @@ button {
     font-weight: bold;
 
     border-radius: 24px;
+}
+
+h2{
+    font-family: 'Chakra Petch', sans-serif;
+}
+
+.go{
+    text-decoration: none;
+    font-family: 'Chakra Petch', sans-serif;
 }
