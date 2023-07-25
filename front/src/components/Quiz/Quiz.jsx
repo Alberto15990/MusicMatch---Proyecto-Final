@@ -36,7 +36,7 @@ const PlaylistCard = ({ answers }) => {
 
   return (
     <div className="playlist">
-      <h2>Esta es tu playlist!!!</h2>
+      <h2>Cual sera tu playlist?... Descubrelo</h2>
       {isLoading ? (
         <p>Cargando playlist...</p>
       ) : (
